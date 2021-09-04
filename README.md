@@ -1,5 +1,5 @@
 <img src="admin/assets/img/pi.png"><hr>
-<p>SCORE is a Sales Lead Management & Reporting System (SLMRS) which  is designed to efficiently organize the sales operation of a company to increase sales and grow business. By integrating easy to use navigation with powerful efficiency, we have created what we believe is a very user friendly and useful application for any business entity.</p>
+<p>Score Insight is a Sales Lead Management & Reporting System (SLMRS) which  is designed to efficiently organize the sales operation of a company to increase sales and grow business. By integrating easy to use navigation with powerful efficiency, we have created what we believe is a very user friendly and useful application for any business entity.</p>
 
 <h2>How Score helps Sales Persons</h2>
   <li>SCORE helps sales persons to organize & handle business enquiries efficiently</li>
