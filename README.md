@@ -36,4 +36,4 @@
  
  <li>If using a web server, add mail server credentials to allow forgot password functionality to work after you log in.</li><br>
  
- <li>Once you are logged in, you can add other uusers under you and get the application up and running.</li><br>
+ <li>Once you are logged in, you can add other users under you and get the application up and running.</li><br>
