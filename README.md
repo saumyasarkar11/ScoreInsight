@@ -9,7 +9,12 @@
   <li>SCORE allows storage, management & tracking of customer information including company information & contact person’s detail</li>
   <li>SCORE allows to view New, Open, Work-in-Progress (WIP) & Closed prospects in a tabular form</li>
   <li>SCORE provides period wise total Prospect & Order value</li>
-  <li>Personal & Team sales report for a particular period can be generated and downloaded in excel format at any time</li>
+  <li>Personal & Team sales report for a particular period can be generated and downloaded in excel format at any time</li><br><br>
+
+![Screenshot from 2021-09-04 20-35-00](https://user-images.githubusercontent.com/76894046/132099213-6bcd3289-a4e8-4939-b262-e9a6927f34cc.png)
+<br>
+<div align="center"><b>User Dashboard View</b></div>
+<br>
 
 <h2>How Score helps Companies</h2>
   <li>SCORE integrates entire sales team based at different cities, branches under one platform</li>
@@ -18,7 +23,12 @@
   <li>SCORE administrator can view & monitor activities of each sales persons, team or branch</li>
   <li>SCORE administrator can enter to any user’s console directly through the admin console if required</li>
   <li>SCORE allows moving prospect/s from one user to another through the admin console if required</li>
-  <li>Management can generate & download Person, Team & Branch wise Prospects & Sales report  for any duration at any time</li>
+  <li>Management can generate & download Person, Team & Branch wise Prospects & Sales report  for any duration at any time</li><br><br>
+  
+![Screenshot from 2021-09-04 20-34-42](https://user-images.githubusercontent.com/76894046/132099145-b01cbc16-4612-449f-b9d2-2f32fbd056f6.png)
+<br>
+<div align="center"><b>Admin Dashboard View</b></div>
+<br>
   
  <h2>Installation Guidelines</h2>
  <li>Clone this repository</li>
