@@ -125,13 +125,13 @@ $query_b = mysqli_query($con, "INSERT INTO converations VALUES (NULL, '$prospect
 		$id = $_POST['id'];
 		$statement = $_POST['statement'];
 		$unread = "Unread";
-	 
-		$query = mysqli_query($con, "INSERT INTO converations VALUES (NULL, '$id', '$statement', NULL, '$unread')") ;
-  
-	$_SESSION['SUCCESS'] = "Comment Added";
-	header('location: overview.php');
 
-}
+		$query = mysqli_query($con, "INSERT INTO converations VALUES (NULL, '$id', '$statement', now(), '$unread')") ;
+  
+		$_SESSION['SUCCESS'] = "Comment Added";
+		header('location: overview.php');
+
+	}
 
 	if(isset($_POST['changepassword'])){
 		$id = $_POST['edit_id'];
@@ -139,65 +139,49 @@ $query_b = mysqli_query($con, "INSERT INTO converations VALUES (NULL, '$prospect
 		$pass=$_POST['password'];
 		$password = md5($pass);
 		$confirmpassword = md5($_POST['confirmpassword']);
-	if ($password==$confirmpassword){
-		$query = "UPDATE users SET password = '$password', unknown='$pass' WHERE user_id ='$id'";
-		$query_run = mysqli_query($con, $query);
 		
-	}		
+		if ($password==$confirmpassword){
+			$query = "UPDATE users SET password = '$password', unknown='$pass' WHERE user_id ='$id'";
+			$query_run = mysqli_query($con, $query);		
+		}		
 	
-			if ($query_run){
-	
-          $_SESSION['SUCCESS'] = "User Password Updated";
+		if ($query_run){
+			$_SESSION['SUCCESS'] = "User Password Updated";
 			header('location: profile.php');
 		} else {
-	
 			$_SESSION['Failure'] = "Passwords Do Not Match";
 			header('location: profile.php');
-		
-		}
-	
+		}	
 	}
 	
 	if(isset($_POST['updateadmin'])){
-	$id = $_POST['edit_id'];
-	$name = $_POST['name'];
-	$phone = $_POST['phone'];
-	$email = $_POST['email'];
+		$id = $_POST['edit_id'];
+		$name = $_POST['name'];
+		$phone = $_POST['phone'];
+		$email = $_POST['email'];
 
-                         
-    $query10= mysqli_query($con, "SELECT * FROM users where user_id='$id'");                                           
-                                $row=mysqli_fetch_assoc($query10);
-                               ;
-                            
-                                
-                    
-	if($email==$row['email']){
-		$query1 = "UPDATE users SET name = '$name', phone='$phone', email = '$email' WHERE user_id ='$id'";
-		$query_run = mysqli_query($con, $query1);
-	
+		$query10= mysqli_query($con, "SELECT * FROM users where user_id='$id'");                                           
+		$row=mysqli_fetch_assoc($query10);                       
+                                                                                
+		if($email==$row['email']){
+			$query1 = "UPDATE users SET name = '$name', phone='$phone', email = '$email' WHERE user_id ='$id'";
+			$query_run = mysqli_query($con, $query1);
 			if ($query_run){
-	
-			$_SESSION['SUCCESS'] = "User Details Updated";
-			
-			header('location: profile.php');
-			
+				$_SESSION['SUCCESS'] = "User Details Updated";
+				header('location: profile.php');
 			} else {
-			    	$_SESSION['Failure'] = "User Details Not Updated";
-			
-			header('location: profile.php');
+				$_SESSION['Failure'] = "User Details Not Updated";
+				header('location: profile.php');
 			}
-			
-	} else {
-	    	$query_1 = "UPDATE users SET name = '$name', phone='$phone', email = '$email' WHERE user_id ='$id'";
-		$query_run_1 = mysqli_query($con, $query_1);
+		} else {
+			$query_1 = "UPDATE users SET name = '$name', phone='$phone', email = '$email' WHERE user_id ='$id'";
+			$query_run_1 = mysqli_query($con, $query_1);
 			if ($query_run_1){
-	
-			 session_destroy();
-	        	unset($_SESSION['username']);
-	        	header('location: profile.php');
+				session_destroy();
+				unset($_SESSION['username']);
+				header('location: profile.php');
 			}
-	
-	}
+		}
 	}
 	
 	if(isset($_POST['addreport'])){
@@ -213,30 +197,24 @@ $query_b = mysqli_query($con, "INSERT INTO converations VALUES (NULL, '$prospect
 
 	// Select file type
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
+    	$imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
 	// Valid file extensions
 	$extensions_arr = array("docx","xlsx","pdf");
   
 	// Check extension
-	if( in_array($imageFileType,$extensions_arr) AND in_array($imageFileType1,$extensions_arr) ){
-
-		
+	if( in_array($imageFileType,$extensions_arr) AND in_array($imageFileType1,$extensions_arr) ){		
 		$query = "INSERT INTO reports VALUES (NULL, '$user_id', '$date', '$logoname', '$logoname1', '$date2')";
 		$query_run = mysqli_query($con, $query);
-
-}
+	}
 	
 	if ($query_run){
-        move_uploaded_file($_FILES['expenses']['tmp_name'],$target_dir.$logoname1);
-        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$logoname);
+        	move_uploaded_file($_FILES['expenses']['tmp_name'],$target_dir.$logoname1);
+        	move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$logoname);
 		$_SESSION['SUCCESS'] = "Report Added";
 		header('location: report.php');
-
-
 	} else {
-
 		$_SESSION['Failure'] = "Report Not Added";
-	   // header('location: report.php');
+	   	// header('location: report.php');
 	
 	}
 
